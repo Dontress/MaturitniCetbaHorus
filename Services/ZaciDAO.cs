@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MaturitniCetba.Models;
+using MaturitniCetba.Services;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -9,11 +11,13 @@ namespace WebApplication1.Services
 {
     public class ZaciDAO
     {
-        string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;Initial Catalog = MaturitniCetba; Integrated Security = True; Connect Timeout = 30;   Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        
 
         public bool FindUser(UserModel user)
         {
             bool success = false;
+
+            string connectionString = ConnectionString.GetConnectionString();
 
             string sqlStatement = "Select* FROM dbo.Zaci WHERE UserName = @username AND Password = @password";
 

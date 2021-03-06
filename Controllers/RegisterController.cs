@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using MaturitniCetba.Models;
+using MaturitniCetba.Services;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +19,10 @@ namespace MaturitniCetba.Controllers
         public IActionResult ProcessRegistration(UserModel userModel)
         {
 
+            RegisterService registerService = new RegisterService();
+
+            if(registerService.CreateUser(userModel))
+                return RedirectToAction("Index", "Home");
 
             return RedirectToAction("Index", "Login");
         }

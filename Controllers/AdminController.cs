@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using MaturitniCetba.Services;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System;
@@ -12,20 +13,11 @@ namespace MaturitniCetba.Controllers
     {
         public IActionResult Index()
         {
-            if (HttpContext.Session.GetString("SessionUser") != null)
+            switch (AuthorizationService.IsLogged(HttpContext))     
             {
-                var userInfo = JsonConvert.DeserializeObject<UserInfo>(HttpContext.Session.GetString("SessionUser"));
-                if (userInfo.UserName == "Admin" )
-                {
-                    ViewBag.userName = userInfo.UserName;
-                    return View();
-                }
-                else
-                    return RedirectToAction("Index", "Login");
-            }
-            else
-            {
-                return RedirectToAction("Index", "Login");
+                case 1: return RedirectToAction("Index", "Home"); ;      
+                case 0: return View();     
+                default: return RedirectToAction("Index", "Login");     
             }
         }
     }

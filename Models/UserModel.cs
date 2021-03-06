@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace WebApplication1.Models
+namespace MaturitniCetba.Models
 {
     public class UserModel
     {
@@ -13,7 +13,7 @@ namespace WebApplication1.Models
 
         public int Id { get; set; }
 
-        public String UserClass { get; set; }
+        public String UserTrida { get; set; }
 
         public String UserJmeno { get; set; }
 

@@ -1,4 +1,5 @@
 ﻿using MaturitniCetba;
+using MaturitniCetba.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -24,51 +25,26 @@ namespace WebApplication1.Controllers
 
         public IActionResult Index()
         {
-            if (HttpContext.Session.GetString("SessionUser") != null)
+            
+
+            switch (AuthorizationService.IsLogged(HttpContext))     // 1 když je přihlášený jakýkoliv uživatel, 0 když je uživatel admin a -1 když nikdo
             {
-                var userInfo = JsonConvert.DeserializeObject<UserInfo>(HttpContext.Session.GetString("SessionUser"));
-                if (userInfo.UserName != null)
-                {
-                    if (userInfo.UserName == "Admin")
-                    {
-                        ViewBag.userName = userInfo.UserName;
-                        return RedirectToAction("Index", "Admin");
-                    }
-                    else
-                    {
-                        ViewBag.userName = userInfo.UserName;
-                        return View();
-                    }
-                }
-                else
-                    return RedirectToAction("Index", "Login");
+                case 1: return View();      // vrátí home page pro studenta
+                case 0: return RedirectToAction("Index", "Admin");      // vrátí home page pro admina
+                default: return RedirectToAction("Index", "Login");     // bez autorizace = vrátí uzivatele na login ať se přihásí
             }
-            else
-            {
-                return RedirectToAction("Index", "Login");
-            }
+            
+
         }
-
-      
-
 
 
         public IActionResult Privacy()
         {
-            if (HttpContext.Session.GetString("SessionUser") != null)
+            switch (AuthorizationService.IsLogged(HttpContext))     
             {
-                var userInfo = JsonConvert.DeserializeObject<UserInfo>(HttpContext.Session.GetString("SessionUser"));
-                if (userInfo.UserName != null)
-                {
-                    ViewBag.userName = userInfo.UserName;
-                    return View();
-                }
-                else
-                    return RedirectToAction("Index", "Login");
-            }
-            else
-            {
-                return RedirectToAction("Index", "Login");
+                case 1: return View();      
+                case 0: return RedirectToAction("Index", "Admin");      
+                default: return RedirectToAction("Index", "Login");     
             }
         }
 
