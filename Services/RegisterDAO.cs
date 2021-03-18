@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Threading.Tasks;
 
 namespace MaturitniCetba.Services
@@ -15,44 +16,36 @@ namespace MaturitniCetba.Services
 
             bool success = false;
 
-            string connectionString = ConnectionString.GetConnectionString();
-           
+            DataCheck dataCheck = new DataCheck();
 
-
-            string sqlStatement = "insert into dbo.Zaci(UserName, Password, UserJmeno, UserPrijemni, UserTrida) VALUES(@username, @password, @userjmeno, @userprijmeni, @usertrida)";
-
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            if ( dataCheck.UserAlreadyExists(user.UserName) == false && dataCheck.UserHasValues(user) && user.Password == user.PasswordConfirm)
             {
-                SqlCommand command = new SqlCommand(sqlStatement, connection);
+                string connectionString = ConnectionString.GetConnectionString();
 
+                string sqlStatement = "insert into dbo.Zaci(UserName, Password, UserJmeno, UserPrijmeni, UserTrida) VALUES(@username, @password, @userjmeno, @userprijmeni, @usertrida)";
 
-                command.Parameters.Add("@username", System.Data.SqlDbType.VarChar, 40).Value = user.UserName;
-                command.Parameters.Add("@password", System.Data.SqlDbType.VarChar, 40).Value = user.Password;
-                command.Parameters.Add("@userjmeno", System.Data.SqlDbType.VarChar, 40).Value = user.UserJmeno;
-                command.Parameters.Add("@userprijmeni", System.Data.SqlDbType.VarChar, 40).Value = user.UserPrijmeni;
-                command.Parameters.Add("@usertrida", System.Data.SqlDbType.VarChar, 40).Value = user.UserTrida;
+                SqlConnection connection = new SqlConnection(connectionString);
 
-                try
-                {
+                SqlCommand cmd = new SqlCommand(sqlStatement);
 
-                    connection.Open();
+                cmd.Parameters.Add("@username", System.Data.SqlDbType.VarChar, 40).Value = user.UserName;
+                cmd.Parameters.Add("@password", System.Data.SqlDbType.VarChar, 155).Value = PasswordCoding.EncodeToBase64(user.Password); 
+                cmd.Parameters.Add("@userjmeno", System.Data.SqlDbType.VarChar, 20).Value = user.UserJmeno;
+                cmd.Parameters.Add("@userprijmeni", System.Data.SqlDbType.VarChar, 20).Value = user.UserPrijmeni;
+                cmd.Parameters.Add("@usertrida", System.Data.SqlDbType.VarChar, 3).Value = user.UserTrida;
 
-                    SqlTransaction transaction;
-                    transaction = connection.BeginTransaction("SampleTransaction");
-                    command.Transaction = transaction;
+                cmd.Connection = connection;
 
-                    command.ExecuteNonQuery();
-                    connection.Close();
-                    success = true;
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine(e.Message);
-                }
+                connection.Open();
+                cmd.ExecuteNonQuery();
+                connection.Close();
 
-
-                return success;
+                success = true;
             }
+            
+
+            return success;
+   
         }
     }
 }

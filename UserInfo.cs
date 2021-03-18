@@ -7,7 +7,8 @@ namespace MaturitniCetba
 {
     public class UserInfo
     {
-        public int UserID { get; set; }
+        public int UserId { get; set; }
         public String UserName { get; set; }
+
     }
 }

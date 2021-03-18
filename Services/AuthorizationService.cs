@@ -14,7 +14,7 @@ namespace MaturitniCetba.Services
         {
             // 1 když je přihlášený jakýkoliv uživatel, 0 když je uživatel admin a -1 když nikdo
 
-            if (context.Session.GetString("SessionUser") != null)
+            if (context.Session.GetString("SessionName") != null)
             {
                 var userInfo = JsonConvert.DeserializeObject<UserInfo>(context.Session.GetString("SessionUser"));
                 if (userInfo.UserName == "Admin")

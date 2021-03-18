@@ -1,14 +1,18 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Home Page - ";
 
 }
 
-<div class="text-center">
-    <h1 class="display-4">This is žákův home page</h1> @ViewBag.userName
-    <ul>
+
+<h1 class="display-4">This is žákův home page</h1>
+
+<div>
+    <ul class="navbar-nav flex-grow-1">
         <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Knihy</a>
+            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="ChoosingBooks">Vybrat knihy</a>
         </li>
     </ul>
 </div>
+
+
 

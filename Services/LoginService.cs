@@ -10,12 +10,12 @@ namespace WebApplication1.Services
     public class LoginService
     {
 
-        ZaciDAO zaciDAO = new ZaciDAO();
+        LoginDAO loginDAO = new LoginDAO();
 
         public bool IsValid(UserModel user)
         {
            
-            return zaciDAO.FindUser(user);  
+            return loginDAO.FindUser(user);  
         }
 
     }

@@ -1,0 +1,60 @@
+﻿@model MaturitniCetba.Models.KnihaModel
+
+@{
+
+
+
+
+
+}
+<h4>Vložit knihu:</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="ProcessVlozeni">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Nazev" class="control-label">Název knihy:</label>
+                <input asp-for="Nazev" class="form-control" />
+                <span asp-validation-for="Nazev" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Popis" class="control-label">Popis:</label>
+                <input asp-for="Popis" class="form-control" type="text" />
+                <span asp-validation-for="Popis" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                @Html.DropDownListFor(model => model.AutorId, new SelectList(Model.autoriList, "Id", "Nazev"), new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                @Html.DropDownListFor(model => model.DruhId, new SelectList(Model.druhyList, "Id", "Nazev"), new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                @Html.DropDownListFor(model => model.ObdobiId, new SelectList(Model.obdobiList, "Id", "Nazev"), new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Vložit knihu" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    @if (ViewBag.Vlozeno == 1)
+    {
+        <h5> Vložení úspěšné </h5>
+    }
+    @if (ViewBag.Vlozeno == -1)
+    {
+        <h5 style="color:red;"> Zadejte prosím platné údaje! </h5>
+    }
+</div>
+
+<div>
+    <a asp-controller="Vlozit" asp-action="Autor">Vložit nového autora</a>
+</div>
+
+<div>
+    <a asp-controller="Admin" asp-action="Index">Zpět</a>
+</div>
+

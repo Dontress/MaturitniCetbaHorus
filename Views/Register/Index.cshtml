@@ -7,27 +7,39 @@
         <form asp-action="ProcessRegistration">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="UserName" class="control-label"></label>
-                <input asp-for="UserName" class="form-control" />
+                <label asp-for="UserName" class="control-label">Email:</label>
+                <input asp-for="UserName" class="form-control" type="email" />
                 <span asp-validation-for="UserName" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Password" class="control-label"></label>
-                <input asp-for="Password" class="form-control" />
+                <label asp-for="Password" class="control-label">Heslo:</label>
+                <input asp-for="Password" class="form-control" type="password" />
                 <span asp-validation-for="Password" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="UserTrida" class="control-label"></label>
-                <input asp-for="UserTrida" class="form-control" />
+                <label asp-for="PasswordConfirm" class="control-label">Potvrdit heslo:</label>
+                <input asp-for="PasswordConfirm" class="form-control" type="password" />
+                <span asp-validation-for="PasswordConfirm" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UserTrida" class="control-label">Třída:</label>
+                <select id="UserTrida" name="UserTrida">
+                    <option value="I4A">I4A</option>
+                    <option value="I4B">I4B</option>
+                    <option value="I4C">I4C</option>
+                    <option value="E4A">E4A</option>
+                    <option value="E4B">E4B</option>
+                    <option value="E4C">E4B</option> 
+                </select>
                 <span asp-validation-for="UserTrida" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="UserJmeno" class="control-label"></label>
+                <label asp-for="UserJmeno" class="control-label">Jméno:</label>
                 <input asp-for="UserJmeno" class="form-control" />
                 <span asp-validation-for="UserJmeno" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="UserPrijmeni" class="control-label"></label>
+                <label asp-for="UserPrijmeni" class="control-label">Přijmení:</label>
                 <input asp-for="UserPrijmeni" class="form-control" />
                 <span asp-validation-for="UserPrijmeni" class="text-danger"></span>
             </div>
@@ -37,8 +49,19 @@
         </form>
     </div>
 </div>
+<div>
+    @if (ViewBag.RegDone == 1)
+    {
+        <h5> Registrace úspěšná </h5>
+    }
+    @if (ViewBag.RegDone == -1)
+    {
+        <h5 style="color:red;" > Zadejte prosím platné údaje! </h5>
+    }
+</div>
 
 <div>
     <a asp-controller="login" asp-action="Index">Back to Login</a>
 </div>
+
 

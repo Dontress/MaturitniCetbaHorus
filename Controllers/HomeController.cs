@@ -38,7 +38,7 @@ namespace WebApplication1.Controllers
         }
 
 
-        public IActionResult Privacy()
+        public IActionResult ChoosingBooks()
         {
             switch (AuthorizationService.IsLogged(HttpContext))     
             {

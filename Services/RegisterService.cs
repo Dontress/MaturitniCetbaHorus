@@ -14,7 +14,9 @@ namespace MaturitniCetba.Services
 
         public bool CreateUser(UserModel user)
         {
+            string userTrida = user.UserTrida;
             return registerDAO.CreateUser(user);
+            
         }
        
 

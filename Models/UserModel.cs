@@ -11,6 +11,8 @@ namespace MaturitniCetba.Models
 
         public String Password { get; set; }
 
+        public String PasswordConfirm { get; set; }
+
         public int Id { get; set; }
 
         public String UserTrida { get; set; }

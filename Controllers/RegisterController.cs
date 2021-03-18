@@ -11,8 +11,9 @@ namespace MaturitniCetba.Controllers
 {
     public class RegisterController : Controller
     {
-        public IActionResult Index()
+        public IActionResult Index(int regDone = 0)
         {
+            ViewBag.RegDone = regDone;
             return View();
         }
 
@@ -22,9 +23,15 @@ namespace MaturitniCetba.Controllers
             RegisterService registerService = new RegisterService();
 
             if(registerService.CreateUser(userModel))
-                return RedirectToAction("Index", "Home");
+            {
+               
+                return RedirectToAction("Index", new { regDone = 1 }); 
+            }
+               
 
-            return RedirectToAction("Index", "Login");
+            return RedirectToAction("Index", new { regDone = -1 });
         }
+
+
     }
 }

@@ -7,12 +7,12 @@
         <form asp-action="ProcessLogin">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="UserName" class="control-label"></label>
+                <label asp-for="UserName" class="control-label">Email:</label>
                 <input asp-for="UserName" class="form-control" />
                 <span asp-validation-for="UserName" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Password" class="control-label"></label>
+                <label asp-for="Password" class="control-label">Heslo:</label>
                 <input asp-for="Password" class="form-control" type="password" />
                 <span asp-validation-for="Password" class="text-danger"></span>
             </div>
@@ -21,6 +21,14 @@
             </div>
         </form>
     </div>
+</div>
+
+<div>
+    @if (ViewBag.LoginFailed == true)
+    {
+        <h5 style="color:red;"> Neplatné jméno nebo heslo! </h5>
+        
+    }
 </div>
 
 <div>
