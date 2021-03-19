@@ -1,18 +1,26 @@
-﻿@{
-    ViewData["Title"] = "Home Page - ";
+﻿@model IEnumerable<MaturitniCetba.Models.KnihaModel>
 
+<p>
+    <a asp-action="Create">Vybrané knihy:</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nazev)
+            </th>
+           
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nazev)
+            </td>
+            
+        </tr>
 }
-
-
-<h1 class="display-4">This is žákův home page</h1>
-
-<div>
-    <ul class="navbar-nav flex-grow-1">
-        <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="ChoosingBooks">Vybrat knihy</a>
-        </li>
-    </ul>
-</div>
-
-
-
+    </tbody>
+</table>
