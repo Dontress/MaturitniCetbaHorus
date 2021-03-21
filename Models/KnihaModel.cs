@@ -14,6 +14,7 @@ namespace MaturitniCetba.Models
         public int AutorId { get; set; }
         public int DruhId { get; set; }
         public int ObdobiId { get; set; }
+        public String AutorJmeno { get; set; }
 
         public List<ObdobiList> obdobiList { get; set; }
         public List<AutoriList> autoriList { get; set; }

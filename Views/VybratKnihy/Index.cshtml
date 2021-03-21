@@ -1,0 +1,38 @@
+﻿@model IEnumerable<MaturitniCetba.Models.KnihaModel>
+
+<table class="table">
+    <thead>
+        <tr>
+           
+            <th>
+                @Html.DisplayNameFor(model => model.Nazev)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AutorJmeno)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Popis)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+           
+            <td>
+                @Html.DisplayFor(modelItem => item.Nazev)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AutorJmeno)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Popis)
+            </td>
+            <td>
+                @Html.ActionLink("Vybrat", "Vybrat", new {  id = item.Id })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
