@@ -1,27 +1,33 @@
 ﻿@model IEnumerable<MaturitniCetba.Models.KnihaModel>
 
 
-<style>
 
-</style>
+<form asp-action="ProcessVybrat">
+    <table class="table">
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nazev)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AutorJmeno)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Popis)
+                    </td>
+                    <td>
 
-<table class="table">
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nazev)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AutorJmeno)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Popis)
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+                        <input type="checkbox" name="knihy" value="@item.Id" />
+
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <input type="submit" value="Zapsat" class="btn btn-primary" />
+</form>

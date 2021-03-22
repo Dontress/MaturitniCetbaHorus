@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace MaturitniCetba.Controllers
 {
-    public class VybratKnihy : Controller
+    public class VybratKnihyController : Controller
     {
         public IActionResult Index()
         {
@@ -27,9 +27,9 @@ namespace MaturitniCetba.Controllers
             
         }
 
-        public IActionResult ProcessVybrat(KnihaModel kniha)
+        public IActionResult ProcessVybrat([FromForm] int[] knihy)
         {
-
+            
 
 
             return RedirectToAction("Index");
