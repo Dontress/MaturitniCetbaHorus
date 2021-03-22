@@ -17,11 +17,7 @@ namespace MaturitniCetba.Controllers
             {
                 case 1:
                     {
-
                         AllBooksDAO allBooks = new();
-
-
-
 
                         return View( allBooks.GetFirstBooks() );
                     }
@@ -29,6 +25,14 @@ namespace MaturitniCetba.Controllers
                 default: return RedirectToAction("Index", "Login");    // bez autorizace = vrátí uzivatele na login ať se přihásí
             }
             
+        }
+
+        public IActionResult ProcessVybrat(KnihaModel kniha)
+        {
+
+
+
+            return RedirectToAction("Index");
         }
     }
 }

@@ -20,6 +20,8 @@ namespace MaturitniCetba.Models
         public List<AutoriList> autoriList { get; set; }
         public List<DruhyList> druhyList { get; set; }
 
+        public List<int> KnihyId { get; set; }
+
     }
 
 

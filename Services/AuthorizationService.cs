@@ -23,7 +23,6 @@ namespace MaturitniCetba.Services
                     return 1;
 
             }
-
             else
                 return -1;
 
