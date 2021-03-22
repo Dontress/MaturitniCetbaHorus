@@ -44,14 +44,6 @@ namespace MaturitniCetba.Controllers
                 SqlConnection connection = new SqlConnection(connectionString);
                 SqlCommand cmd = new SqlCommand(sqlStatement);
 
-                if (kniha.Popis != null)
-                {
-                    cmd.Parameters.Add("@popis", System.Data.SqlDbType.Text).Value = kniha.Popis;
-                }
-                else 
-                {
-                    cmd.Parameters.Add("@popis", System.Data.SqlDbType.Text).Value = "Bez popisu";
-                }
                  
                 cmd.Parameters.Add("@nazev", System.Data.SqlDbType.VarChar, 50).Value = kniha.Nazev;
                 cmd.Parameters.Add("@autorId", System.Data.SqlDbType.Int).Value = kniha.AutorId;

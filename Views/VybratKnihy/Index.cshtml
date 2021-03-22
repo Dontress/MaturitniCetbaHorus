@@ -3,29 +3,75 @@
 
 
 <form asp-action="ProcessVybrat">
+    <h5>Svetová a ceská literatura do konce 18. st</h5>
     <table class="table">
         <tbody>
             @foreach (var item in Model)
             {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Id)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Nazev)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.AutorJmeno)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Popis)
-                    </td>
-                    <td>
+                @if (item.ObdobiId == 1)
+                {
+                    <tr>
+                        <td>
+                            <input type="checkbox" name="knihy" value="@item.Id" />    @Html.DisplayFor(modelItem => item.Nazev) (@Html.DisplayFor(modelItem => item.AutorJmeno))
+                        </td>
+                    </tr>
+                }
 
-                        <input type="checkbox" name="knihy" value="@item.Id" />
+            }
+        </tbody>
+    </table>
 
-                    </td>
-                </tr>
+    <h5>Svetová a ceská literatura 19. st</h5>
+    <table class="table">
+        <tbody>
+            @foreach (var item in Model)
+            {
+                @if (item.ObdobiId == 2)
+                {
+                    <tr>
+                        <td>
+                            <input type="checkbox" name="knihy" value="@item.Id" />    @Html.DisplayFor(modelItem => item.Nazev) (@Html.DisplayFor(modelItem => item.AutorJmeno))
+                        </td>
+                    </tr>
+                }
+
+            }
+        </tbody>
+    </table>
+
+
+    <h5>Svetová literatura 20. a 21. století</h5>
+    <table class="table">
+        <tbody>
+            @foreach (var item in Model)
+            {
+                @if (item.ObdobiId == 3)
+                {
+                    <tr>
+                        <td>
+                            <input type="checkbox" name="knihy" value="@item.Id" />    @Html.DisplayFor(modelItem => item.Nazev) (@Html.DisplayFor(modelItem => item.AutorJmeno))
+                        </td>
+                    </tr>
+                }
+
+            }
+        </tbody>
+    </table>
+
+    <h5>Ceská literaturna 20. a 21. století</h5>
+    <table class="table">
+        <tbody>
+            @foreach (var item in Model)
+            {
+                @if (item.ObdobiId == 4)
+                {
+                    <tr>
+                        <td>
+                            <input type="checkbox" name="knihy" value="@item.Id" />    @Html.DisplayFor(modelItem => item.Nazev) (@Html.DisplayFor(modelItem => item.AutorJmeno))
+                        </td>
+                    </tr>
+                }
+
             }
         </tbody>
     </table>

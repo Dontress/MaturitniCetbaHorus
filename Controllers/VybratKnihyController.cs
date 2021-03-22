@@ -19,7 +19,7 @@ namespace MaturitniCetba.Controllers
                     {
                         AllBooksDAO allBooks = new();
 
-                        return View( allBooks.GetFirstBooks() );
+                        return View( allBooks.GetAllBooks() );
                     }
                 case 0: return RedirectToAction("Admin", "Home");
                 default: return RedirectToAction("Index", "Login");    // bez autorizace = vrátí uzivatele na login ať se přihásí

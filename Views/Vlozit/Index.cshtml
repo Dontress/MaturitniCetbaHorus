@@ -12,11 +12,6 @@
                 <span asp-validation-for="Nazev" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Popis" class="control-label">Popis:</label>
-                <input asp-for="Popis" class="form-control" type="text" />
-                <span asp-validation-for="Popis" class="text-danger"></span>
-            </div>
-            <div class="form-group">
                 @Html.DropDownListFor(model => model.AutorId, new SelectList(Model.autoriList, "Id", "Nazev"), new { @class = "form-control" })
             </div>
             <div class="form-group">
