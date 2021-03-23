@@ -39,7 +39,7 @@ namespace MaturitniCetba.Controllers
             if (kniha.Nazev != null && kniha.AutorId != 0 && kniha.DruhId != 0 && kniha.ObdobiId != 0)
             {
                 string connectionString = ConnectionString.GetConnectionString();
-                string sqlStatement = "insert into dbo.Knihy(Nazev, Popis, AutorId, DruhId, ObdobiId) VALUES(@nazev, @popis, @autorId, @druhId, @obdobiId)";
+                string sqlStatement = "insert into dbo.Knihy(Nazev, AutorId, DruhId, ObdobiId) VALUES(@nazev, @autorId, @druhId, @obdobiId)";
 
                 SqlConnection connection = new SqlConnection(connectionString);
                 SqlCommand cmd = new SqlCommand(sqlStatement);

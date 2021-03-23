@@ -80,5 +80,77 @@ namespace MaturitniCetba.Services
 
         }
 
+        public bool MnozstviKnihCheck(List<KnihaModel> knihy)   // jestli je 20 knih
+        {
+            bool check = false;
+            int count = 0;
+
+            foreach (var item in knihy)
+                count++;
+
+            if (count == 20)
+                check = true;
+
+            return check;
+        }
+
+        public bool DuplicitaAutoruCheck(List<KnihaModel> knihy)     // jestli neni vice knih od jednoho autora nez dve
+        {
+            bool check = false;
+            int count = 0;
+            int[] autori = new int[ knihy.Count ];
+
+            foreach (var item in knihy)
+            {
+                autori[count] = item.AutorId;
+                count++;
+            }
+
+            Array.Sort(autori);
+
+            if ( !(knihy.GroupBy(x => x).Any(g => g.Count() > 2)) )     // tohle nefunguje prosim pekne
+            {
+                check = true;
+            }
+
+            return check;
+        }
+
+        public bool ObdobiCheck(List<KnihaModel> knihy, int obdobiId, int knihPotreba)      // jestli je dostatecne knih z urciteho obdobi, urceneho pomoci parametru methody
+        {
+            bool check = false;
+            int count = 0;
+
+            foreach (var item in knihy)
+            {
+                if (item.ObdobiId == obdobiId)
+                    count++;
+            }
+
+            if (count >= knihPotreba)
+                check = true;
+
+            return check;
+        }
+
+        public bool DruhyCheck(List<KnihaModel> knihy, int druhId)      // jestli je kazdy literarni druh zasoupen alespon 2x
+        {
+            bool check = false;
+            int count = 0;
+
+            foreach (var item in knihy)
+            {
+                if (item.DruhId == druhId)
+                    count++;
+            }
+
+            if (count >= 2)
+                check = true;
+
+            return check;
+        }
+
+
+
     }
 }

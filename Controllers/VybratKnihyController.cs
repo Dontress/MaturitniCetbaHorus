@@ -27,9 +27,26 @@ namespace MaturitniCetba.Controllers
             
         }
 
-        public IActionResult ProcessVybrat([FromForm] int[] knihy)
+        public IActionResult ProcessVybrat([FromForm] int[] knihyId)
         {
-            
+            CheckingBooksDAO CheckingBooks = new();
+
+            List<KnihaModel> knihyList = CheckingBooks.GetChosenBooksById(knihyId);
+
+            DataCheck check = new();
+
+
+            check.MnozstviKnihCheck(knihyList);
+
+            check.DruhyCheck(knihyList, 1);
+
+            check.ObdobiCheck(knihyList, 1, 2);
+            check.ObdobiCheck(knihyList, 2, 3);
+            check.ObdobiCheck(knihyList, 3, 4);
+            check.ObdobiCheck(knihyList, 4, 5);
+
+            check.DuplicitaAutoruCheck(knihyList);
+
 
 
             return RedirectToAction("Index");
