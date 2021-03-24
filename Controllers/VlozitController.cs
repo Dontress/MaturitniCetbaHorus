@@ -22,9 +22,9 @@ namespace MaturitniCetba.Controllers
 
                         KnihaModel dropdownlist = new KnihaModel
                         {
-                            obdobiList = GetObdobiList(),
-                            autoriList = GetAutoriList(),
-                            druhyList = GetDruhyList()
+                            ObdobiList = GetObdobiList(),
+                            AutoriList = GetAutoriList(),
+                            DruhyList = GetDruhyList()
                         };
 
                         return View(dropdownlist);

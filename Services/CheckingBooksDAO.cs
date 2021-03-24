@@ -47,5 +47,73 @@ namespace MaturitniCetba.Services
 
             return knihyList;
         }
+
+        public bool SmazatStare(int userId)
+        {
+            bool success = false;
+
+            try
+            {
+                string connectionString = ConnectionString.GetConnectionString();
+                string sqlStatement = "delete from Zaci_has_Knihy where IdZaka = @userId";
+
+                SqlConnection connection = new SqlConnection(connectionString);
+
+                SqlCommand cmd = new SqlCommand(sqlStatement);
+
+                cmd.Parameters.Add("@userId", System.Data.SqlDbType.Int, 40).Value = userId;
+
+
+                cmd.Connection = connection;
+
+                connection.Open();
+                cmd.ExecuteNonQuery();
+                connection.Close();
+
+                success = true;
+            }
+            catch (Exception e) {
+                Console.WriteLine("Chyba v mazani knih urciteho zaka");
+            }
+            
+
+            return success;
+        }
+
+        public bool VlozitNove(List<KnihaModel> knihyList, int userId)
+        {
+            bool success = false;
+
+            try
+            {
+
+                string connectionString = ConnectionString.GetConnectionString();
+                string sqlStatement = "insert into Zaci_has_Knihy (IdZaka, IdKnihy) VALUES(@userId,@idKnihy)";
+
+
+                foreach (var item in knihyList)
+                {
+
+                    SqlConnection connection = new SqlConnection(connectionString);
+                    SqlCommand cmd = new SqlCommand(sqlStatement);
+                    cmd.Parameters.Add("@userId", System.Data.SqlDbType.Int, 40).Value = userId;
+                    cmd.Parameters.Add("@IdKnihy", System.Data.SqlDbType.Int, 40).Value = item.Id;
+                    cmd.Connection = connection;
+
+                    connection.Open();
+                    cmd.ExecuteNonQuery();
+                    connection.Close();
+                }
+
+                success = true;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Chyba ve vkládání knih urciteho zaka");
+            }
+
+
+            return success;
+        }
     }
 }

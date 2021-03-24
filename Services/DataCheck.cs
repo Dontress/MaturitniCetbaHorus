@@ -96,7 +96,7 @@ namespace MaturitniCetba.Services
 
         public bool DuplicitaAutoruCheck(List<KnihaModel> knihy)     // jestli neni vice knih od jednoho autora nez dve
         {
-            bool check = false;
+            bool check = true;
             int count = 0;
             int[] autori = new int[ knihy.Count ];
 
@@ -108,9 +108,10 @@ namespace MaturitniCetba.Services
 
             Array.Sort(autori);
 
-            if ( !(knihy.GroupBy(x => x).Any(g => g.Count() > 2)) )     // tohle nefunguje prosim pekne
+            for(int i = 0; i < (count - 2); i++)
             {
-                check = true;
+                if (autori[i] == autori[i + 1] && autori[i] == autori[i + 2])
+                    check = false;
             }
 
             return check;
@@ -148,6 +149,18 @@ namespace MaturitniCetba.Services
                 check = true;
 
             return check;
+        }
+
+        public bool BooksAreValid(ChybaVyberuModel chyba)
+        {
+            bool booksAreValid = false;
+
+            if (chyba.DvacetKnih && chyba.DruhDrama && chyba.DruhPoezie && chyba.DruhProza && chyba.ObdobiPrvni && chyba.ObdobiDruhe && chyba.ObdobiTreti && chyba.ObdobiCtvrte && chyba.DuplicitaAutoru) 
+            {
+                booksAreValid = true;
+            }
+
+            return booksAreValid;
         }
 
 

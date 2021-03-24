@@ -12,13 +12,13 @@
                 <span asp-validation-for="Nazev" class="text-danger"></span>
             </div>
             <div class="form-group">
-                @Html.DropDownListFor(model => model.AutorId, new SelectList(Model.autoriList, "Id", "Nazev"), new { @class = "form-control" })
+                @Html.DropDownListFor(model => model.AutorId, new SelectList(Model.AutoriList, "Id", "Nazev"), new { @class = "form-control" })
             </div>
             <div class="form-group">
-                @Html.DropDownListFor(model => model.DruhId, new SelectList(Model.druhyList, "Id", "Nazev"), new { @class = "form-control" })
+                @Html.DropDownListFor(model => model.DruhId, new SelectList(Model.DruhyList, "Id", "Nazev"), new { @class = "form-control" })
             </div>
             <div class="form-group">
-                @Html.DropDownListFor(model => model.ObdobiId, new SelectList(Model.obdobiList, "Id", "Nazev"), new { @class = "form-control" })
+                @Html.DropDownListFor(model => model.ObdobiId, new SelectList(Model.ObdobiList, "Id", "Nazev"), new { @class = "form-control" })
             </div>
             <div class="form-group">
                 <input type="submit" value="Vložit knihu" class="btn btn-primary" />

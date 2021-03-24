@@ -50,15 +50,6 @@ namespace WebApplication1.Controllers
         }
 
 
-        public IActionResult ChoosingBooks()
-        {
-            switch (AuthorizationService.IsLogged(HttpContext))     
-            {
-                case 1: return View();      
-                case 0: return RedirectToAction("Index", "Admin");      
-                default: return RedirectToAction("Index", "Login");     
-            }
-        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
