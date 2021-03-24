@@ -26,14 +26,14 @@
                 </div>
            @if( @Context.Session.GetString("SessionUser") != null)
             {
-            <div class="topnav-right collapse d-sm-inline-flex justify-content-between">
-                <ul class="navbar-nav flex-grow-1 mr-auto">
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Login" asp-action="Index">Logout("@Context.Session.GetString("SessionName")")</a>
-                    </li>
+                <div class="topnav-right collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1 mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Login" asp-action="Index">Logout("@Context.Session.GetString("SessionName")")</a>
+                        </li>
 
-                </ul>
-            </div>
+                    </ul>
+                </div>
             }
        
             </div>

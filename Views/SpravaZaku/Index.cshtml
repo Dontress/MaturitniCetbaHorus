@@ -1,0 +1,49 @@
+﻿@model IEnumerable<MaturitniCetba.Models.UserModel>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                ID
+            </th>
+            <th>
+                Email
+            </th>
+            <th>
+                Jméno
+            </th>
+            <th>
+                Příjmení
+            </th>
+            <th>
+                Třída
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserJmeno)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserPrijmeni)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserTrida)
+            </td>
+            <td>
+                @Html.ActionLink("Změnit heslo", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Smazat", "Smazat", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

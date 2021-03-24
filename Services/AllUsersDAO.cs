@@ -7,17 +7,17 @@ using System.Threading.Tasks;
 
 namespace MaturitniCetba.Services
 {
-    public class AllBooksDAO
+    public class AllUsersDAO
     {
 
-        public List<KnihaModel> GetAllBooks()
+        public List<UserModel> GetAllUsers()
         {
-            List<KnihaModel> allBooks = new();
+            List<UserModel> allUsers = new();
 
             string connectionString = ConnectionString.GetConnectionString();
             SqlConnection connection = new SqlConnection(connectionString);
 
-            string sqlStatement = "select Knihy.Nazev, Autori.Jmeno, Knihy.Id, Knihy.ObdobiId, Knihy.DruhId FROM dbo.Knihy INNER JOIN dbo.Autori on Knihy.AutorId = Autori.Id";
+            string sqlStatement = "select Zaci.Id, Zaci.UserName, Zaci.UserJmeno, Zaci.UserPrijmeni, Zaci.UserTrida FROM dbo.Zaci ";
             SqlCommand cmd = new SqlCommand(sqlStatement, connection);
 
             try
@@ -28,19 +28,18 @@ namespace MaturitniCetba.Services
 
                 while (reader.Read())
                 {
-                    allBooks.Add(new KnihaModel { Nazev = (String)reader[0], AutorJmeno = (String)reader[1], Id = (int)reader[2], ObdobiId = (int)reader[3], DruhId = (int)reader[4] });
+                    allUsers.Add(new UserModel { Id = (int)reader[0], UserName = (String)reader[1], UserJmeno = (String)reader[2], UserPrijmeni = (String)reader[3], UserTrida = (String)reader[4] });
                 }
 
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.Message + "chyba v GetFirstBooks");
+                Console.WriteLine(e.Message + "chyba v GetAllUsers");
             }
 
             connection.Close();
 
-            return allBooks;
+            return allUsers;
         }
-
     }
 }
