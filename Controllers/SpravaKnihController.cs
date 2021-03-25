@@ -16,18 +16,22 @@ namespace MaturitniCetba.Controllers
                 case 1: return RedirectToAction("Index", "Home"); ;
                 case 0:
                     {
-
                         AllBooksDAO allBooks = new();
-
-
-
-
 
 
                         return View( allBooks.GetAllBooks() );
                     }
                 default: return RedirectToAction("Index", "Login");
             }
+        }
+
+        public IActionResult Smazat(int idKnihy)
+        {
+            SmazatKnihuDAO mazaniKnihy = new();
+
+            mazaniKnihy.SmazatKnihu(idKnihy);
+
+            return RedirectToAction("Index");
         }
     }
 }

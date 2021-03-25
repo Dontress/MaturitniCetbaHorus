@@ -36,30 +36,12 @@ namespace MaturitniCetba.Controllers
         public IActionResult ProcessVlozeni(KnihaModel kniha)
         {
 
-            if (kniha.Nazev != null && kniha.AutorId != 0 && kniha.DruhId != 0 && kniha.ObdobiId != 0)
-            {
-                string connectionString = ConnectionString.GetConnectionString();
-                string sqlStatement = "insert into dbo.Knihy(Nazev, AutorId, DruhId, ObdobiId) VALUES(@nazev, @autorId, @druhId, @obdobiId)";
+            VlozitKnihuDAO vkladaniKnihy = new();
 
-                SqlConnection connection = new SqlConnection(connectionString);
-                SqlCommand cmd = new SqlCommand(sqlStatement);
-
-                 
-                cmd.Parameters.Add("@nazev", System.Data.SqlDbType.VarChar, 50).Value = kniha.Nazev;
-                cmd.Parameters.Add("@autorId", System.Data.SqlDbType.Int).Value = kniha.AutorId;
-                cmd.Parameters.Add("@druhId", System.Data.SqlDbType.Int).Value = kniha.DruhId;
-                cmd.Parameters.Add("@obdobiId", System.Data.SqlDbType.Int).Value = kniha.ObdobiId;
-
-                cmd.Connection = connection;
-
-                connection.Open();
-                cmd.ExecuteNonQuery();
-                connection.Close();
-
+            if(vkladaniKnihy.VlozitKnihu(kniha))
                 return RedirectToAction("Index", new { vlozeno = 1 });
-            }
-
-            return RedirectToAction("Index", new { vlozeno = -1 }); 
+            else
+                return RedirectToAction("Index", new { vlozeno = -1 }); 
         }
 
         public IActionResult Autor(int vlozeno = 0)
@@ -81,29 +63,13 @@ namespace MaturitniCetba.Controllers
         public IActionResult ProcessAutor(AutorModel autor)
         {
 
-            DataCheck dataCheck = new();
-
-            if( autor.Jmeno != null && dataCheck.AutorAlreadyExists(autor.Jmeno) == false)
-            {
-                string connectionString = ConnectionString.GetConnectionString();
-                string sqlStatement = "insert into dbo.Autori(Jmeno) VALUES(@jmeno)";
-
-                SqlConnection connection = new SqlConnection(connectionString);
-                SqlCommand cmd = new SqlCommand(sqlStatement);
-
-                cmd.Parameters.Add("@jmeno", System.Data.SqlDbType.VarChar, 75).Value = autor.Jmeno;
-
-                cmd.Connection = connection;
-
-                connection.Open();
-                cmd.ExecuteNonQuery();
-                connection.Close();
+            VlozitAutoraDAO vkladaniAutora = new();
 
 
+            if(vkladaniAutora.VlozitAutora(autor))
                 return RedirectToAction("Autor", new { vlozeno = 1 });
-            }
-        
-            return RedirectToAction("Autor", new { vlozeno = -1 }) ;
+            else
+                return RedirectToAction("Autor", new { vlozeno = -1 }) ;
         }
 
         public List<ObdobiList> GetObdobiList()
