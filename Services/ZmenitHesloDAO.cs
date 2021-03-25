@@ -37,7 +37,7 @@ namespace MaturitniCetba.Services
             }
             catch (Exception e)
             {
-                Console.WriteLine("Chyba ve změně hesla u určitého žáka");
+                Console.WriteLine("Chyba ve změně hesla u určitého žáka" + e);
             }
 
             return success;

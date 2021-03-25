@@ -34,7 +34,7 @@ namespace MaturitniCetba.Services
             }
             catch (Exception e)
             {
-                Console.WriteLine("Chyba v mazani urciteho zaka");
+                Console.WriteLine("Chyba v mazani urciteho zaka" + e);
             }
 
             return success;

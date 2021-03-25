@@ -73,7 +73,7 @@ namespace MaturitniCetba.Services
                 success = true;
             }
             catch (Exception e) {
-                Console.WriteLine("Chyba v mazani knih urciteho zaka");
+                Console.WriteLine("Chyba v mazani knih urciteho zaka" + e);
             }
             
 
@@ -109,7 +109,7 @@ namespace MaturitniCetba.Services
             }
             catch (Exception e)
             {
-                Console.WriteLine("Chyba ve vkládání knih urciteho zaka");
+                Console.WriteLine("Chyba ve vkládání knih urciteho zaka" + e);
             }
 
 
