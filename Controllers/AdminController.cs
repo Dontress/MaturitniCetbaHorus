@@ -16,12 +16,7 @@ namespace MaturitniCetba.Controllers
             switch (AuthorizationService.IsLogged(HttpContext))     
             {
                 case 1: return RedirectToAction("Index", "Home"); ;      
-                case 0: {
-
-                        GetUserWihoutBookDAO withoutBook = new();
-
-                        return View( withoutBook.GetUserWihoutBook() ); 
-                    }    
+                case 0: return View();     
                 default: return RedirectToAction("Index", "Login");     
             }
         }

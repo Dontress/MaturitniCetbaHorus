@@ -16,7 +16,7 @@
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
 
-                <div class="flex-wrap:nowrap d-sm-inline-flex justify-content-between">
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index" value="userInfo">Home</a>
@@ -26,7 +26,7 @@
                 </div>
            @if( @Context.Session.GetString("SessionUser") != null)
             {
-                <div class="float-right ">
+                <div class="topnav-right collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1 mr-auto">
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Login" asp-action="Index">Logout("@Context.Session.GetString("SessionName")")</a>

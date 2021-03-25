@@ -8,35 +8,35 @@
         }
         @if (ViewBag.Proza == false)
         {
-            <div> <p style="color:red;">Je nutno zadat alespon 2 prózy</p> </div>
+            <div> <p style="color:red;">Je nutno zadat alespon dvě prózy</p> </div>
         }
         @if (ViewBag.Poezie == false)
         {
-            <div> <p style="color:red;">Je nutno zadat alespoň 2 poezie</p> </div>
+            <div> <p style="color:red;">Je nutno zadat alespoň dvě poezie</p> </div>
         }
         @if (ViewBag.Drama == false)
         {
-            <div> <p style="color:red;">Je nutno zadat alespoň 2 dramata</p> </div>
+            <div> <p style="color:red;">Je nutno zadat alespoň dvě dramata</p> </div>
         }
         @if (ViewBag.Prvni == false)
         {
-            <div> <p style="color:red;">Je nutno zadat alespoň 2 díla prvního období</p> </div>
+            <div> <p style="color:red;">Je nutno zadat alespoň dvě díla prvního období</p> </div>
         }
         @if (ViewBag.Druhe == false)
         {
-            <div> <p style="color:red;">Je nutno zadat alespoň 3 díla druhého období</p> </div>
+            <div> <p style="color:red;">Je nutno zadat alespoň tři díla druhého období</p> </div>
         }
         @if (ViewBag.Treti == false)
         {
-            <div> <p style="color:red;">Je nutno zadat alespoň 4 díla třetí období</p> </div>
+            <div> <p style="color:red;">Je nutno zadat alespoň čtyři díla třetí období</p> </div>
         }
         @if (ViewBag.Ctvrte == false)
         {
-            <div> <p style="color:red;">Je nutno zadat alespoň 5 čtvrtého období</p> </div>
+            <div> <p style="color:red;">Je nutno zadat alespoň pět děl čtvrtého období</p> </div>
         }
         @if (ViewBag.Autor == false)
         {
-            <div> <p style="color:red;">Nesmí být více než 2 knihy od jednoho autora</p> </div>
+            <div> <p style="color:red;">Nesmí být více jak dvě knihy od jednoho autora</p> </div>
         }
 
         <br>
@@ -53,8 +53,7 @@
                         {
                             <tr>
                                 <td>
-                                    <input id="@item.Id" type="checkbox" name="knihyId" value="@item.Id"/>    
-                                    <label for="@item.Id">@Html.DisplayFor(modelItem => item.Nazev) (@Html.DisplayFor(modelItem => item.AutorJmeno))</label>
+                                    <input type="checkbox" name="knihyId" value="@item.Id" />    @Html.DisplayFor(modelItem => item.Nazev) (@Html.DisplayFor(modelItem => item.AutorJmeno))
                                 </td>
                             </tr>
                         }
@@ -72,8 +71,7 @@
                         {
                             <tr>
                                 <td>
-                                    <input id="@item.Id" type="checkbox" name="knihyId" value="@item.Id" />
-                                    <label for="@item.Id">@Html.DisplayFor(modelItem => item.Nazev) (@Html.DisplayFor(modelItem => item.AutorJmeno))</label>
+                                    <input type="checkbox" name="knihyId" value="@item.Id" />    @Html.DisplayFor(modelItem => item.Nazev) (@Html.DisplayFor(modelItem => item.AutorJmeno))
                                 </td>
                             </tr>
                         }
@@ -92,8 +90,7 @@
                         {
                             <tr>
                                 <td>
-                                    <input id="@item.Id" type="checkbox" name="knihyId" value="@item.Id" />
-                                    <label for="@item.Id">@Html.DisplayFor(modelItem => item.Nazev) (@Html.DisplayFor(modelItem => item.AutorJmeno))</label>
+                                    <input type="checkbox" name="knihyId" value="@item.Id" />    @Html.DisplayFor(modelItem => item.Nazev) (@Html.DisplayFor(modelItem => item.AutorJmeno))
                                 </td>
                             </tr>
                         }
@@ -111,8 +108,7 @@
                         {
                             <tr>
                                 <td>
-                                    <input id="@item.Id" type="checkbox" name="knihyId" value="@item.Id" />
-                                    <label for="@item.Id">@Html.DisplayFor(modelItem => item.Nazev) (@Html.DisplayFor(modelItem => item.AutorJmeno))</label>
+                                    <input type="checkbox" name="knihyId" value="@item.Id" />    @Html.DisplayFor(modelItem => item.Nazev) (@Html.DisplayFor(modelItem => item.AutorJmeno))
                                 </td>
                             </tr>
                         }

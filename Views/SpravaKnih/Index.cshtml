@@ -5,6 +5,9 @@
     <thead>
         <tr>
             <th>
+                ID
+            </th>
+            <th>
                 Název
             </th>
             <th>
@@ -22,6 +25,9 @@
 @foreach (var item in Model) {
         <tr>
             <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.Nazev)
             </td>
             <td>
@@ -34,7 +40,7 @@
                 @Html.DisplayFor(modelItem => item.ObdobiId)
             </td>
             <td>
-                @Html.ActionLink("Smazat", "Smazat", new { idKnihy=item.Id })
+                @Html.ActionLink("Smazat", "Smazat", new { /* id=item.PrimaryKey */ })
             </td>
         </tr>
 }

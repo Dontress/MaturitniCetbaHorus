@@ -1,33 +1,11 @@
-﻿@model IEnumerable<MaturitniCetba.Models.UserModel>
-@{
+﻿@{
     ViewData["Title"] = "Admin Page";
 
 }
 
-<div>
+<div class="text-center">
     <a class="nav-link text-dark" asp-area="" asp-controller="Vlozit" asp-action="Index">Vložit knihu</a>
     <a class="nav-link text-dark" asp-area="" asp-controller="SpravaZaku" asp-action="Index">Zobrazit žáky</a>
     <a class="nav-link text-dark" asp-area="" asp-controller="SpravaKnih" asp-action="Index">Zobrazit knihy</a>
+
 </div>
-<br>
-<h5>Žáci bez vybraných knih knihy:</h5>
-<table class="table">
-    <tbody>
-        @foreach (var item in Model)
-        {
-
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.UserJmeno) @Html.DisplayFor(modelItem => item.UserPrijmeni)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.UserName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.UserTrida)
-                </td>
-            </tr>
-
-        }
-    </tbody>
-</table>
