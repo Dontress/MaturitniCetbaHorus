@@ -5,16 +5,10 @@
     <thead>
         <tr>
             <th>
-                ID
-            </th>
-            <th>
-                Email
-            </th>
-            <th>
                 Jméno
             </th>
             <th>
-                Příjmení
+                Email
             </th>
             <th>
                 Třída
@@ -22,28 +16,25 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.UserName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.UserJmeno)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.UserPrijmeni)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.UserTrida)
-            </td>
-            <td>
-                @Html.ActionLink("Změnit heslo", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Smazat", "Smazat", new { /* id=item.PrimaryKey */ })
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            
+                 <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.UserJmeno) @Html.DisplayFor(modelItem => item.UserPrijmeni)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.UserName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.UserTrida)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Změnit heslo", "Zmenit", new {  idZaka=item.Id  }) |
+                        @Html.ActionLink("Smazat", "Smazat", new { idZaka=item.Id  })
+                    </td>
+                </tr>
+            
+        }
     </tbody>
 </table>
