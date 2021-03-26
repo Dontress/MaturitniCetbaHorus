@@ -7,41 +7,43 @@ using System.Threading.Tasks;
 
 namespace MaturitniCetba.Services
 {
-    public class ChosenBooksDAO
+    public class GetUserByIDDAO
     {
 
-        public List<KnihaModel> GetChosenBooks(int userId)
+        public UserModel GetUserByID(int userId)
         {
-            List<KnihaModel> chosenBooks = new();
+            UserModel user = new();
 
             string connectionString = ConnectionString.GetConnectionString();
             SqlConnection connection = new SqlConnection(connectionString);
 
-            string sqlStatement = "select Knihy.Nazev, Autori.Jmeno from dbo.Knihy inner join dbo.Zaci_has_Knihy on Knihy.Id = Zaci_has_Knihy.IdKnihy inner join dbo.Autori on Knihy.AutorId = Autori.Id WHERE Zaci_has_Knihy.IdZaka = @UserId";
+            string sqlStatement = "SELECT Zaci.UserJmeno, Zaci.UserPrijmeni, Zaci.UserTrida FROM dbo.Zaci WHERE Id = @userId";
             SqlCommand cmd = new SqlCommand(sqlStatement, connection);
+
+            cmd.Parameters.Add("@userId", System.Data.SqlDbType.Int).Value = userId;
 
             try
             {
-                cmd.Parameters.Add("@UserId", System.Data.SqlDbType.Int).Value = userId;
-
                 connection.Open();
 
                 SqlDataReader reader = cmd.ExecuteReader();
 
                 while (reader.Read())
                 {
-                    chosenBooks.Add(new KnihaModel { Nazev = (String)reader[0], AutorJmeno = (String)reader[1] });
+                    user.UserJmeno = (String)reader[0];
+                    user.UserPrijmeni = (String)reader[1];
+                    user.UserTrida = (String)reader[2];
                 }
 
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.Message + "chyba v getChosenBooks");
+                Console.WriteLine(e.Message + "chyba v GetUserByID");
             }
 
             connection.Close();
 
-            return chosenBooks;
+            return user;
         }
     }
 }
