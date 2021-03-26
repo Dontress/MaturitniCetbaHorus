@@ -3,6 +3,9 @@
 <p class="btn-block">
     <a asp-action="Index" asp-controller="VybratKnihy">Vybrat novou povinnou četbu</a>
 </p>
+<p class="btn-block">
+    @Html.ActionLink("Tisk", "Index", "Document", new { idZaka = ViewBag.Id })
+</p>
 <h5>
     <a>Vaše vybrané knihy:</a>
 </h5>

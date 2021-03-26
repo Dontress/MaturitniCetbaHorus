@@ -30,9 +30,9 @@
                         @Html.DisplayFor(modelItem => item.UserTrida)
                     </td>
                     <td>
+                        @Html.ActionLink("Tisk", "Index", "Document", new { idZaka = item.Id }) |
                         @Html.ActionLink("Změnit heslo", "Zmenit", new { idZaka = item.Id }) |
-                        @Html.ActionLink("Smazat", "Smazat", new { idZaka = item.Id }) |
-                        @Html.ActionLink("Tisk", "Index", "Document", new { idZaka = item.Id })
+                        @Html.ActionLink("Smazat", "Smazat", new { idZaka = item.Id })
                     </td>
                 </tr>
             

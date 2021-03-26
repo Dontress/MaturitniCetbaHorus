@@ -39,7 +39,7 @@ namespace WebApplication1.Controllers
 
                         
                         ChosenBooksDAO chosenBooks = new ChosenBooksDAO();
-                  
+                        ViewBag.Id = userId;
                         return View( chosenBooks.GetChosenBooks(userId) );
                     }      
                 case 0: return RedirectToAction("Index", "Admin");      // vrátí home page pro admina

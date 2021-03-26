@@ -23,16 +23,17 @@ namespace MaturitniCetba.Controllers
         {
 
             ChosenBooksDAO vybraneKnihy = new();
-
             List<KnihaModel> knihy = vybraneKnihy.GetChosenBooks(idZaka);
-            GetUserByIDDAO nacistZaka = new();
-
-            UserModel user = nacistZaka.GetUserByID(idZaka);
-            String jmeno = user.UserJmeno + " " +  user.UserPrijmeni;
-
 
             if (!(knihy.Count == 0))
             {
+                GetUserByIDDAO nacistZaka = new();
+
+                UserModel user = nacistZaka.GetUserByID(idZaka);
+                String jmeno = user.UserJmeno + " " + user.UserPrijmeni;
+
+                string date = DateTime.UtcNow.ToString("dd.MM.yyyy");
+
                 byte[] pdfBytes;
                 int count = 0;
 
@@ -62,6 +63,15 @@ namespace MaturitniCetba.Controllers
                         count++;
                         document.Add(new Paragraph(count.ToString() + ". " + item.Nazev + " (" + item.AutorJmeno + ")").SetFont(font).SetPaddingLeft(55));
                     }
+
+                    document.Add(new Paragraph(""));
+                    document.Add(new Paragraph(""));
+                    document.Add(new Paragraph("")); 
+                    document.Add(new Paragraph(""));
+                    document.Add(new Paragraph(""));
+                     
+                    document.Add(new Paragraph("Datum: " + date + "                                                                        Podpis: ............ " ).SetFont(font).SetPaddingLeft(55));
+
 
                     document.Close();
 
