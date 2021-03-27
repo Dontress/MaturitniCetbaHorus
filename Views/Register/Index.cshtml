@@ -7,40 +7,40 @@
         <form asp-action="ProcessRegistration">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="UserName" class="control-label">Email:</label>
-                <input asp-for="UserName" class="form-control" type="email" />
+                <label asp-for="UserName" class="control-label">Školní email:</label>
+                <input asp-for="UserName" class="form-control" type="email" placeholder="j.novak.st@spseiostrava.cz" required />
                 <span asp-validation-for="UserName" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Password" class="control-label">Heslo:</label>
-                <input asp-for="Password" class="form-control" type="password" />
+                <input asp-for="Password" class="form-control" type="password" required/>
                 <span asp-validation-for="Password" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="PasswordConfirm" class="control-label">Potvrdit heslo:</label>
-                <input asp-for="PasswordConfirm" class="form-control" type="password" />
+                <input asp-for="PasswordConfirm" class="form-control" type="password" required />
                 <span asp-validation-for="PasswordConfirm" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="UserTrida" class="control-label">Třída:</label>
-                <select id="UserTrida" name="UserTrida">
-                    <option value="I4A">I4A</option>
-                    <option value="I4B">I4B</option>
-                    <option value="I4C">I4C</option>
-                    <option value="E4A">E4A</option>
-                    <option value="E4B">E4B</option>
-                    <option value="E4C">E4C</option> 
+                <select id="UserTrida" name="UserTrida" style=" margin-inline-start: 5px;" required>
+                    <option value="I4A"> I4A </option>
+                    <option value="I4B"> I4B </option>
+                    <option value="I4C"> I4C </option>
+                    <option value="E4A"> E4A </option>
+                    <option value="E4B"> E4B </option>
+                    <option value="E4C"> E4C </option> 
                 </select>
                 <span asp-validation-for="UserTrida" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="UserJmeno" class="control-label">Jméno:</label>
-                <input asp-for="UserJmeno" class="form-control" />
+                <input asp-for="UserJmeno" class="form-control" required/>
                 <span asp-validation-for="UserJmeno" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="UserPrijmeni" class="control-label">Přijmení:</label>
-                <input asp-for="UserPrijmeni" class="form-control" />
+                <input asp-for="UserPrijmeni" class="form-control" required/>
                 <span asp-validation-for="UserPrijmeni" class="text-danger"></span>
             </div>
             <div class="form-group">

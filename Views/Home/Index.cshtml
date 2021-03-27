@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<MaturitniCetba.Models.KnihaModel>
 
 <p class="btn-block">
-    <a asp-action="Index" asp-controller="VybratKnihy">Vybrat novou povinnou četbu</a>
+    <a  asp-action="Index" asp-controller="VybratKnihy">Vybrat novou povinnou četbu</a>
 </p>
 <p class="btn-block">
     @Html.ActionLink("Tisk", "Index", "Document", new { idZaka = ViewBag.Id })
@@ -9,7 +9,7 @@
 <h5>
     <a>Vaše vybrané knihy:</a>
 </h5>
-<table class="table">
+<table class="table" >
     <tbody>
 @foreach (var item in Model) {
         <tr>

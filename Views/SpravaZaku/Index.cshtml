@@ -1,41 +1,173 @@
 ﻿@model IEnumerable<MaturitniCetba.Models.UserModel>
 
+    <table class="table" style="table-layout:fixed">
+        <tbody>
+            <tr>
+                <td>
+                    Admin
+                </td>
+                <td>
+                    Admin
+                </td>
+                <td>
+                    @Html.ActionLink("Změnit heslo", "Zmenit", new { idZaka = 3009 })
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <h5>I4A</h5>
+    <table class="table" style="table-layout:fixed">
+        <tbody>
+            @foreach (var item in Model)
+            {
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                Jméno
-            </th>
-            <th>
-                Email
-            </th>
-            <th>
-                Třída
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            
-                 <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.UserJmeno) @Html.DisplayFor(modelItem => item.UserPrijmeni)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.UserName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.UserTrida)
-                    </td>
-                    <td>
-                        @Html.ActionLink("Tisk", "Index", "Document", new { idZaka = item.Id }) |
-                        @Html.ActionLink("Změnit heslo", "Zmenit", new { idZaka = item.Id }) |
-                        @Html.ActionLink("Smazat", "Smazat", new { idZaka = item.Id })
-                    </td>
-                </tr>
-            
-        }
-    </tbody>
-</table>
+
+                @if (item.UserTrida == "I4A")
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.UserJmeno) @Html.DisplayFor(modelItem => item.UserPrijmeni)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.UserName)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Tisk", "Index", "Document", new { idZaka = item.Id }) |
+                            @Html.ActionLink("Změnit heslo", "Zmenit", new { idZaka = item.Id }) |
+                            @Html.ActionLink("Smazat", "Smazat", new { idZaka = item.Id })
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+    <h5>I4B</h5>
+    <table class="table" style="table-layout:fixed">
+        <tbody>
+            @foreach (var item in Model)
+            {
+
+
+                @if (item.UserTrida == "I4B")
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.UserJmeno) @Html.DisplayFor(modelItem => item.UserPrijmeni)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.UserName)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Tisk", "Index", "Document", new { idZaka = item.Id }) |
+                            @Html.ActionLink("Změnit heslo", "Zmenit", new { idZaka = item.Id }) |
+                            @Html.ActionLink("Smazat", "Smazat", new { idZaka = item.Id })
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+    <h5>I4C</h5>
+    <table class="table" style="table-layout:fixed">
+        <tbody>
+            @foreach (var item in Model)
+            {
+
+
+                @if (item.UserTrida == "I4C")
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.UserJmeno) @Html.DisplayFor(modelItem => item.UserPrijmeni)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.UserName)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Tisk", "Index", "Document", new { idZaka = item.Id }) |
+                            @Html.ActionLink("Změnit heslo", "Zmenit", new { idZaka = item.Id }) |
+                            @Html.ActionLink("Smazat", "Smazat", new { idZaka = item.Id })
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+    <h5>E4A</h5>
+    <table class="table" style="table-layout:fixed">
+        <tbody>
+            @foreach (var item in Model)
+            {
+
+
+                @if (item.UserTrida == "E4A")
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.UserJmeno) @Html.DisplayFor(modelItem => item.UserPrijmeni)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.UserName)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Tisk", "Index", "Document", new { idZaka = item.Id }) |
+                            @Html.ActionLink("Změnit heslo", "Zmenit", new { idZaka = item.Id }) |
+                            @Html.ActionLink("Smazat", "Smazat", new { idZaka = item.Id })
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+    <h5>E4B</h5>
+    <table class="table" style="table-layout:fixed">
+        <tbody>
+            @foreach (var item in Model)
+            {
+
+
+                @if (item.UserTrida == "E4B")
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.UserJmeno) @Html.DisplayFor(modelItem => item.UserPrijmeni)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.UserName)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Tisk", "Index", "Document", new { idZaka = item.Id }) |
+                            @Html.ActionLink("Změnit heslo", "Zmenit", new { idZaka = item.Id }) |
+                            @Html.ActionLink("Smazat", "Smazat", new { idZaka = item.Id })
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+    <h5>E4C</h5>
+    <table class="table" style="table-layout:fixed">
+        <tbody>
+            @foreach (var item in Model)
+            {
+
+
+                @if (item.UserTrida == "E4C")
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.UserJmeno) @Html.DisplayFor(modelItem => item.UserPrijmeni)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.UserName)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Tisk", "Index", "Document", new { idZaka = item.Id }) |
+                            @Html.ActionLink("Změnit heslo", "Zmenit", new { idZaka = item.Id }) |
+                            @Html.ActionLink("Smazat", "Smazat", new { idZaka = item.Id })
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>

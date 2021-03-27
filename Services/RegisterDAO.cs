@@ -18,7 +18,7 @@ namespace MaturitniCetba.Services
 
             DataCheck dataCheck = new DataCheck();
 
-            if ( dataCheck.UserAlreadyExists(user.UserName) == false && dataCheck.UserHasValues(user) && user.Password == user.PasswordConfirm)
+            if ( dataCheck.UserAlreadyExists(user.UserName) == false && dataCheck.UserHasValues(user) && user.Password == user.PasswordConfirm && dataCheck.HasRightEmail(user.UserName))
             {
                 string connectionString = ConnectionString.GetConnectionString();
 

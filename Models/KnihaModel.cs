@@ -10,6 +10,7 @@ namespace MaturitniCetba.Models
 
         public int Id { get; set; }
         public String Nazev { get; set; }
+        public String DruhNazev { get; set; }
         public int AutorId { get; set; }
         public int DruhId { get; set; }
         public int ObdobiId { get; set; }

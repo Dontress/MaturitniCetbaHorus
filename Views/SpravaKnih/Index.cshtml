@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<MaturitniCetba.Models.KnihaModel>
 
 
-<table class="table">
+<table class="table" style="position: relative">
     <thead>
         <tr>
             <th>
@@ -11,10 +11,10 @@
                 Autor
             </th>
             <th>
-                ID Druhu
+                Druh
             </th>
             <th>
-                ID Obdobi
+                Období
             </th>
         </tr>
     </thead>
@@ -28,7 +28,7 @@
                 @Html.DisplayFor(modelItem => item.AutorJmeno)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.DruhId)
+                @Html.DisplayFor(modelItem => item.DruhNazev)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.ObdobiId)

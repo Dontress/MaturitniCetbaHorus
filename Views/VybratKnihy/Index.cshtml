@@ -1,6 +1,8 @@
 ﻿@model IEnumerable<MaturitniCetba.Models.KnihaModel>
 
 <div>
+    <h5>Podmínky výběru četby:</h5>
+    <hr>
     <div>
         @if (ViewBag.DvacetKnih == false)
         {
@@ -34,7 +36,7 @@
         {
             <div> <p style="color:red;">Je nutno zadat alespoň 5 čtvrtého období</p> </div>
         }
-        @if (ViewBag.Autor == false)
+        @if (ViewBag.Autori == false)
         {
             <div> <p style="color:red;">Nesmí být více než 2 knihy od jednoho autora</p> </div>
         }

@@ -50,6 +50,20 @@ namespace MaturitniCetba.Services
 
         }
 
+        public bool HasRightEmail(string userName)
+        {
+            bool success = false;
+
+            int index = userName.IndexOf("@");
+            if (index > 0)
+                userName = userName.Substring(index);
+
+            if (userName == "@spseiostrava.cz")
+                success = true;
+
+            return success;
+        }
+
         public bool AutorAlreadyExists(String jmeno)
         {
 

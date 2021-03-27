@@ -1,17 +1,19 @@
 ﻿@model IEnumerable<MaturitniCetba.Models.UserModel>
 @{
-    ViewData["Title"] = "Admin Page";
+    ViewData["Title"] = "Admin Page - ";
 
 }
 
 <div>
-    <a class="nav-link text-dark" asp-area="" asp-controller="Vlozit" asp-action="Index">Vložit knihu</a>
-    <a class="nav-link text-dark" asp-area="" asp-controller="SpravaZaku" asp-action="Index">Zobrazit žáky</a>
-    <a class="nav-link text-dark" asp-area="" asp-controller="SpravaKnih" asp-action="Index">Zobrazit knihy</a>
+    <a class="nav-link text-dark" style="border-style: solid; border-width: 1px; border-radius: 9px; max-width: 300px; " asp-controller="Vlozit" asp-action="Index">Vložit knihu nebo autora</a>
+    <br />
+    <a class="nav-link text-dark" style="border-style: solid; border-width: 1px; border-radius: 9px; max-width: 300px;" asp-area="" asp-controller="SpravaZaku" asp-action="Index">Zobrazit žáky</a>
+    <br />
+    <a class="nav-link text-dark" style="border-style: solid; border-width: 1px; border-radius: 9px; max-width: 300px; " asp-area="" asp-controller="SpravaKnih" asp-action="Index">Zobrazit knihy</a>
 </div>
 <br>
 <h5>Žáci bez vybraných knih knihy:</h5>
-<table class="table">
+<table class="table" style="table-layout:fixed">
     <tbody>
         @foreach (var item in Model)
         {
