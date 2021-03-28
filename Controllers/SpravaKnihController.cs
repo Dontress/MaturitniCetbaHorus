@@ -18,7 +18,6 @@ namespace MaturitniCetba.Controllers
                     {
                         AllBooksDAO allBooks = new();
 
-
                         return View( allBooks.GetAllBooks() );
                     }
                 default: return RedirectToAction("Index", "Login");

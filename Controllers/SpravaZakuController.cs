@@ -19,7 +19,6 @@ namespace MaturitniCetba.Controllers
 
                         AllUsersDAO allUsers = new();
 
-
                         return View(allUsers.GetAllUsers());
                     }
                 default: return RedirectToAction("Index", "Login");

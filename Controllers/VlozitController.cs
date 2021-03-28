@@ -65,7 +65,6 @@ namespace MaturitniCetba.Controllers
 
             VlozitAutoraDAO vkladaniAutora = new();
 
-
             if(vkladaniAutora.VlozitAutora(autor))
                 return RedirectToAction("Autor", new { vlozeno = 1 });
             else

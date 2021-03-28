@@ -29,8 +29,6 @@ namespace MaturitniCetba.Controllers
                             ViewBag.Ctvrte = chyba.ObdobiCtvrte;
                             ViewBag.Autori = chyba.DuplicitaAutoru;
                         
-                        
-
                         AllBooksDAO allBooks = new();
 
                         return View( allBooks.GetAllBooks() );
@@ -48,8 +46,7 @@ namespace MaturitniCetba.Controllers
             List<KnihaModel> knihyList = checkingBooks.GetChosenBooksById(knihyId);
 
             DataCheck check = new();
-
-            
+   
             // jestli je dvacet knih
             chyba.DvacetKnih = check.MnozstviKnihCheck(knihyList);
 
@@ -62,7 +59,6 @@ namespace MaturitniCetba.Controllers
             // jestli je dost dramatu
             chyba.DruhDrama = check.DruhyCheck(knihyList, 3);
 
-
             // jestli je dost knih v prvnim obodbi
             chyba.ObdobiPrvni = check.ObdobiCheck(knihyList, 1, 2);
 
@@ -74,8 +70,7 @@ namespace MaturitniCetba.Controllers
 
             // jestli je dost knih v prvnim obodbi
             chyba.ObdobiCtvrte = check.ObdobiCheck(knihyList, 4, 5);
-
-            
+           
             // jestli neni jeden autor vice nez 2x
             chyba.DuplicitaAutoru = check.DuplicitaAutoruCheck(knihyList);
 

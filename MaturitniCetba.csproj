@@ -2,7 +2,18 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
+    <UserSecretsId>bcf83da2-b10d-4ff6-ad98-0c771f006882</UserSecretsId>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Font\arial.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Font\arial.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="itext7" Version="7.1.14" />

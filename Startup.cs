@@ -25,6 +25,7 @@ namespace WebApplication1
         {
             services.AddDistributedMemoryCache();
 
+
         services.AddSession(options =>
         {
             options.IdleTimeout = TimeSpan.FromSeconds(360);

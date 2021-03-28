@@ -17,9 +17,6 @@ namespace WebApplication1.Controllers
 {
     public class HomeController : Controller
     {
-
-       
-
         private readonly ILogger<HomeController> _logger;
 
         public HomeController(ILogger<HomeController> logger)
@@ -29,15 +26,11 @@ namespace WebApplication1.Controllers
 
         public IActionResult Index()
         {
-            
-
             switch (AuthorizationService.IsLogged(HttpContext))     // 1 když je přihlášený jakýkoliv uživatel, 0 když je uživatel admin a -1 když nikdo
             {
                 case 1: {
-
                         int userId = Int32.Parse(HttpContext.Session.GetString("SessionId")); 
-
-                        
+               
                         ChosenBooksDAO chosenBooks = new ChosenBooksDAO();
                         ViewBag.Id = userId;
                         return View( chosenBooks.GetChosenBooks(userId) );
@@ -45,8 +38,6 @@ namespace WebApplication1.Controllers
                 case 0: return RedirectToAction("Index", "Admin");      // vrátí home page pro admina
                 default: return RedirectToAction("Index", "Login");     // bez autorizace = vrátí uzivatele na login ať se přihásí
             }
-            
-
         }
 
 

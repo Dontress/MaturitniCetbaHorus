@@ -21,6 +21,7 @@ namespace MaturitniCetba.Controllers
 {
     public class DocumentController : Controller
     {
+        [Route("Tisk/{idZaka}")]
         public IActionResult Index(int idZaka)
         {
 
@@ -97,15 +98,17 @@ namespace MaturitniCetba.Controllers
                     document.Add(new Paragraph(""));
                     document.Add(new Paragraph("")); 
                    
-                     
+                    //prosím nevyhazujte mě za ty hard coded mezery :(
                     document.Add(new Paragraph("Datum: " + date + "                                                                                    Podpis: ................ " ).SetFont(font).SetPaddingLeft(30).SetMarginTop(15));
 
 
                     document.Close();
 
                     pdfBytes = stream.ToArray();
+
+                    
                 }
-                return new FileContentResult(pdfBytes, "application/pdf");
+                return File(pdfBytes, contentType: "application/pdf");
             }
             else
                 return RedirectToAction("Index","SpravaZaku");

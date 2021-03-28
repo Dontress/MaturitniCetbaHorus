@@ -27,7 +27,6 @@ namespace MaturitniCetba.Controllers
                
                 return RedirectToAction("Index", new { regDone = 1 }); 
             }
-               
 
             return RedirectToAction("Index", new { regDone = -1 });
         }

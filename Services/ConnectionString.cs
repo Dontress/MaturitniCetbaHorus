@@ -10,7 +10,7 @@ namespace MaturitniCetba.Services
 
         public static string GetConnectionString()
         {
-            string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;Initial Catalog = MaturitniCetba; Integrated Security = True; Connect Timeout = 30;   Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+            string connectionString = @"Data Source=maturitnicetbadbserver.database.windows.net;Initial Catalog=MaturitniCetbaDatabase;User ID=serveradmin;Password=Dontresswow123;Connect Timeout=30;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
             return connectionString;
         }
     }
